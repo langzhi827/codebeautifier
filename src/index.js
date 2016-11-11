@@ -22,7 +22,7 @@ let mimeModes = {
     'json': 'javascript'
 };
 
-window.codebeautifier = function (option) { // element, type, text, indentString
+let codebeautifier = function (option) { // element, type, text, indentString
     option = option || {};
     if (!isDom(option.element) || !option.type || !option.text) {
         return;
@@ -59,4 +59,7 @@ window.codebeautifier = function (option) { // element, type, text, indentString
         mode: mimeModes[option.type]
     });
 
-};
+}
+
+
+export {codebeautifier};

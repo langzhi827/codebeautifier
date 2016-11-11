@@ -6,7 +6,9 @@ module.exports = {
     entry: ['babel-polyfill', __dirname + '/src/index.js'],
     output: {
         path: __dirname + '/lib',
-        filename: "codebeautifier.js"
+        filename: "codebeautifier.js",
+        libraryTarget: 'umd',
+        umdNamedDefine: true
     },
     module: {
         loaders: [
