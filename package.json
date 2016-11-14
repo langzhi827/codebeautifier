@@ -1,0 +1,39 @@
+{
+  "name": "codebeautifier",
+  "version": "0.1.0",
+  "description": "Beautify the code in the browser",
+  "main": "lib/codebeautifier.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "acorn": "^4.0.3",
+    "codemirror": "^5.20.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "webpack": "^1.13.3"
+  },
+  "scripts": {
+    "start": "webpack --progress --colors",
+    "watch": "webpack --progress --colors --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/langzhi827/codebeautifier.git"
+  },
+  "keywords": [
+    "codebeautifier",
+    "code",
+    "beautifier",
+    "format"
+  ],
+  "author": "harry.lang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/langzhi827/codebeautifier/issues"
+  },
+  "homepage": "https://github.com/langzhi827/codebeautifier#readme"
+}

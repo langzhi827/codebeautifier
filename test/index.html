@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../lib/codebeautifier.css"/>
+    <title>codebeautifier</title>
+    <style id="style">
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        .row:before, .row:after {
+            content: ' ';
+            display: table;
+        }
+
+        .row:after {
+            clear: both;
+        }
+
+        .col {
+            float: left;
+            width: 50%;
+            border: 1px solid red;
+        }
+
+        .box-title {
+            background-color: #eeeeee;
+            padding: 5px;
+        }
+
+        .box-body {
+            height: 320px;
+        }
+
+        .CodeMirror {
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">CSS</h5>
+            <h5 class="box-body" id="test1"></h5>
+        </div>
+    </div>
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">JavaScript</h5>
+            <h5 class="box-body" id="test2"></h5>
+        </div>
+    </div>
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">HTML</h5>
+            <h5 class="box-body" id="test3"></h5>
+        </div>
+    </div>
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">XML</h5>
+            <h5 class="box-body" id="test4"></h5>
+        </div>
+    </div>
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">JSON</h5>
+            <h5 class="box-body" id="test5"></h5>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/codebeautifier.js"></script>
+<script id="script">
+    var data = {
+        "a": undefined,
+        "b": true,
+        "c": 1,
+        "d": 0,
+        "e": "123",
+        "f": null,
+        "g": {
+            "b": true,
+            "c": 1,
+            "d": 0,
+            "e": "123",
+            "f": null
+        },
+        "h": [
+            {
+                "b": true,
+                "c": 1,
+                "d": 0,
+                "e": "123",
+                "f": null
+            },
+            {
+                "b": true,
+                "c": 1,
+                "d": 0,
+                "e": "123",
+                "f": null
+            }
+        ]
+    };
+    // css demo
+    codebeautifier({
+        element: document.getElementById('test1'),
+        type: 'css',
+        text: document.getElementById('style').innerHTML
+    });
+
+    // js demo
+    codebeautifier({
+        element: document.getElementById('test2'),
+        type: 'javascript',
+        text: document.getElementById('script').innerHTML
+    });
+
+    // html demo
+    codebeautifier({
+        element: document.getElementById('test3'),
+        type: 'html',
+        text: document.documentElement.outerHTML
+    });
+
+    // xml demo
+    codebeautifier({
+        element: document.getElementById('test4'),
+        type: 'xml',
+        text: '<?xml version="1.0" encoding="ISO-8859-1"?><note><to>George</to><from>John</from><heading>Reminder</heading><body>Dont forget the meeting!</body></note>'
+    });
+
+    // json demo
+    codebeautifier({
+        element: document.getElementById('test5'),
+        type: 'json',
+        text: JSON.stringify(data),
+        indent: '  '
+    });
+
+</script>
+</body>
+</html>
