@@ -64,7 +64,9 @@ exports.codebeautifier = function (option) {
 
     CodeMirror(option.element, {
         value: content,
-        mode: mimeModes[option.type]
+        mode: mimeModes[option.type],
+        readOnly: 'nocursor'
+
     });
 
     return content;
