@@ -32,7 +32,7 @@ var mimeModes = {
  */
 exports.codebeautifier = function (option) {
     option = option || {};
-    if (!isDom(option.element) || !option.type || !option.text) {
+    if (!option.type || !option.text) {
         return;
     }
     var indent = option.indent || "    ";
@@ -62,12 +62,28 @@ exports.codebeautifier = function (option) {
     formatter.format(option.text, lineEndings, 0, option.text.length);
     var content = builder.content();
 
-    CodeMirror(option.element, {
-        value: content,
-        mode: mimeModes[option.type],
-        readOnly: 'nocursor'
+    if (isDom(option.element)) {
+        CodeMirror(option.element, {
+            value: content,
+            mode: mimeModes[option.type],
+            readOnly: 'nocursor'
+        });
+    } else {
+        var box = document.createElement('div');
+        box.style.position = 'absolute';
+        box.style.left = '-10000px';
+        box.style.top = '-10000px';
+        document.body.appendChild(box);
 
-    });
+        CodeMirror(box, {
+            value: content,
+            mode: mimeModes[option.type],
+            readOnly: 'nocursor'
+        });
+        var html = box.innerHTML;
+        document.body.removeChild(box);
+        return html;
+    }
 
     return content;
 

@@ -80,6 +80,12 @@
             <h5 class="box-body" id="test5"></h5>
         </div>
     </div>
+    <div class="col">
+        <div class="box">
+            <h5 class="box-title">JSON</h5>
+            <h5 class="box-body" id="test6"></h5>
+        </div>
+    </div>
 </div>
 
 <script src="../lib/codebeautifier.js"></script>
@@ -150,6 +156,13 @@
         text: JSON.stringify(data),
         indent: '  '
     });
+
+    var html = codebeautifier({
+        type: 'json',
+        text: JSON.stringify(data),
+        indent: '  '
+    });
+    document.getElementById('test6').innerHTML = html;
 
 </script>
 </body>
